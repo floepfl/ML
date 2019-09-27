@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 """Gradient Descent"""
 
-def compute_gradient(y, tx, w):
+def compute_gradient2(y, tx, w):
     """Compute the gradient."""
-    # ***************************************************
-    # INSERT YOUR CODE HERE
-    # TODO: compute gradient and loss
-    # ***************************************************
-    raise NotImplementedError
-
+    return (-1 / tx.shape[0]) * (tx.T @ (y - tx @ w.T))
 
 def gradient_descent(y, tx, initial_w, max_iters, gamma):
     """Gradient descent algorithm."""
@@ -17,16 +12,8 @@ def gradient_descent(y, tx, initial_w, max_iters, gamma):
     losses = []
     w = initial_w
     for n_iter in range(max_iters):
-        # ***************************************************
-        # INSERT YOUR CODE HERE
-        # TODO: compute gradient and loss
-        # ***************************************************
-        raise NotImplementedError
-        # ***************************************************
-        # INSERT YOUR CODE HERE
-        # TODO: update w by gradient
-        # ***************************************************
-        raise NotImplementedError
+        loss = compute_gradient(y, tx, w)        
+        w = w - gamma * loss
         # store w and loss
         ws.append(w)
         losses.append(loss)
