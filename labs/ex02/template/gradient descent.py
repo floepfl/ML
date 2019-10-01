@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Gradient Descent"""
 
-def compute_gradient2(y, tx, w):
+def compute_gradient(y, tx, w):
     """Compute the gradient."""
     return (-1 / tx.shape[0]) * (tx.T @ (y - tx @ w.T))
 
