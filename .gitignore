@@ -109,3 +109,6 @@ ENV/
 
 # Compressed files
 *.zip
+
+# Data files
+*.csv
