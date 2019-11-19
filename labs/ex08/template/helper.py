@@ -3,6 +3,7 @@
 import os
 import shutil
 import numpy as np
+from matplotlib.pyplot import imread
 from scipy import misc
 
 
@@ -31,17 +32,24 @@ def build_dir(dir):
 
 def load_image(path):
     """use the scipy.misc to load the image."""
-    return misc.imread(path)
+    return imread(path)
 
 
 def build_distance_matrix(data, mu):
     """build a distance matrix.
-
-    row of the matrix represents the data point,
-    column of the matrix represents the k-th cluster.
+    return
+        distance matrix:
+            row of the matrix represents the data point,
+            column of the matrix represents the k-th cluster.
     """
     # ***************************************************
     # INSERT YOUR CODE HERE
     # TODO: build distance matrix
     # ***************************************************
-    raise NotImplementedError
+    d_matrix = []
+    for i in range(data.shape[0]):
+        d_matrix_row = []
+        for j in range(mu.shape[0]):
+            d_matrix_row.append(np.linalg.norm(data[i] - mu[j]))
+        d_matrix.append(d_matrix_row)
+    return np.array(d_matrix)
